@@ -23,7 +23,7 @@ public class Player2Controller : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump2") && IsGrounded())
         {
-            player.velocity = new Vector3(0, 10f, 0);
+            player.velocity = new Vector3(player.velocity.x, 10f, 0);
         }
 
 

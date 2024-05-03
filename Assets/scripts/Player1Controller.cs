@@ -7,23 +7,33 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D player;
+    private BoxCollider2D coll;
+
+    [SerializeField] private LayerMask jumpableGround;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            player.velocity = new Vector3(0, 10f, 0);
+            player.velocity = new Vector3(player.velocity.x, 10f, 0);
         }
 
 
         float dirX = Input.GetAxis("Horizontal");
         player.velocity = new Vector2(dirX * 5f, player.velocity.y);
     }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
 }
+

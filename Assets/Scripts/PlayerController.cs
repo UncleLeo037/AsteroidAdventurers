@@ -4,23 +4,17 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class PlayerController : MonoBehaviour
+public abstract class PlayerController : MonoBehaviour
 {
-    protected BoxCollider2D coll;
-    protected Rigidbody2D player;
     [SerializeField] protected LayerMask jumpableGround;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected BoxCollider2D coll;
+    protected Rigidbody2D player;
+    protected float dirX;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void Start();
+
+    public abstract void Update();
 
     protected bool IsGrounded()
     {

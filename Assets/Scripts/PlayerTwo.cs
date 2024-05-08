@@ -7,22 +7,22 @@ public class PlayerTwo : PlayerController
 {
 
     // Start is called before the first frame update
-    public void Start()
+    public override void Start()
     {
         coll = GetComponent<BoxCollider2D>();
         player = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    public void Update()
+    public override void Update()
     {
         if (Input.GetButtonDown("Jump2") && base.IsGrounded())
         {
-            player.velocity = new Vector3(player.velocity.x, 10f, 0);
+            player.velocity = new Vector2(player.velocity.x, 10f);
         }
 
 
-        float dirX = Input.GetAxis("Horizontal2");
+        dirX = Input.GetAxis("Horizontal2");
         player.velocity = new Vector2(dirX * 5f, player.velocity.y);
     }
 }

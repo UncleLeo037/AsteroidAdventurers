@@ -11,6 +11,7 @@ public class PlayerOne : PlayerController
     {
         coll = GetComponent<BoxCollider2D>();
         player = GetComponent<Rigidbody2D>();
+        sounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,8 +22,15 @@ public class PlayerOne : PlayerController
             player.velocity = new Vector2(player.velocity.x, 10f);
         }
 
-
         float xAxis = Input.GetAxis("Horizontal");
+        if (player.velocity.x == 0f || !base.IsGrounded())
+        {
+            sounds.enabled = false;
+        }
+        else
+        {
+            sounds.enabled = true;
+        }
         player.velocity = new Vector2(xAxis * 5f, player.velocity.y);
     }
 }

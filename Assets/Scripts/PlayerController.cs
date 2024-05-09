@@ -11,9 +11,11 @@ public abstract class PlayerController : MonoBehaviour
     protected BoxCollider2D coll;
     public Rigidbody2D player;
 
+    protected AudioSource sounds;
+
     protected IPlayerState currentState = new PlayerIdle();
 
-    protected Vector2 input;
+    protected Vector2 input = Vector2.zero;
 
     public abstract void Start();
 
@@ -34,6 +36,11 @@ public abstract class PlayerController : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    public void DestroyState(IPlayerState state)
+    {
+        state = null;
     }
 }
 
@@ -61,7 +68,7 @@ public class PlayerIdle : IPlayerState
 
     public void Exit(PlayerController player)
     {
-        //Destroy(this);
+        player.DestroyState(this);
         return;
     }
 }
@@ -84,7 +91,7 @@ public class PlayerRunning : IPlayerState
 
     public void Exit(PlayerController player)
     {
-        //Destroy(this);
+        player.DestroyState(this);
         return;
     }
 }
@@ -107,7 +114,7 @@ public class PlayerJumping : IPlayerState
 
     public void Exit(PlayerController player)
     {
-        //Destroy(this);
+        player.DestroyState(this);
         return;
     }
 }

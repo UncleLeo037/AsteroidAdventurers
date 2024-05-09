@@ -3623,6 +3623,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8520446205383681219, guid: 63601e5cf58a5cb4fb0f28f320278dd8, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520446205383681219, guid: 63601e5cf58a5cb4fb0f28f320278dd8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520446205383681219, guid: 63601e5cf58a5cb4fb0f28f320278dd8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b7da239306365a41b7970dc353151f4, type: 3}
+    - target: {fileID: 8520446205383681219, guid: 63601e5cf58a5cb4fb0f28f320278dd8, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8541702886589965333, guid: 63601e5cf58a5cb4fb0f28f320278dd8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.42
@@ -3726,6 +3742,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827313340626305913, guid: ffd3dd3a5f4f642499d2ca825ec58760, type: 3}
       propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656170294519256484, guid: ffd3dd3a5f4f642499d2ca825ec58760, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656170294519256484, guid: ffd3dd3a5f4f642499d2ca825ec58760, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7656170294519256484, guid: ffd3dd3a5f4f642499d2ca825ec58760, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b7da239306365a41b7970dc353151f4, type: 3}
+    - target: {fileID: 7656170294519256484, guid: ffd3dd3a5f4f642499d2ca825ec58760, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:

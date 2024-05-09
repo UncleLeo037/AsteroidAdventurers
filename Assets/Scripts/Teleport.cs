@@ -8,13 +8,18 @@ public class Teleport : MonoBehaviour
     static bool one;
     static bool two;
 
+    public static int level = 1;
+    public static int gain = 0;
+
     void Update()
     {
         if (one && two)
         {
             one = false;
             two = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            level += gain;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadSceneAsync(0);
         }
     }
 

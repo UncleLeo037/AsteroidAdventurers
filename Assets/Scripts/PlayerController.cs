@@ -13,7 +13,7 @@ public abstract class PlayerController : MonoBehaviour
 
     protected IPlayerState currentState = new PlayerIdle();
 
-    protected new Vector2 input;
+    protected Vector2 input;
 
     public abstract void Start();
 

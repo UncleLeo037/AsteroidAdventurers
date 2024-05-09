@@ -22,6 +22,16 @@ public class Menu : MonoBehaviour
         }
     }
 
+    public void savePrefs(int level)
+    {
+        PlayerPrefs.SetInt("level", level);
+    }
+
+    public int LoadPrefs()
+    {
+        return PlayerPrefs.GetInt("level", 1);
+    }
+
     public void LaunchLevel1()
     {
         if (Teleport.level == 1)

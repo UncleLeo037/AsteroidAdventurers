@@ -9,15 +9,15 @@ public abstract class PlayerController : MonoBehaviour
     [SerializeField] protected LayerMask jumpableGround;
 
     protected BoxCollider2D coll;
-    public Rigidbody2D player;
-    public AudioSource sounds;
-    public Animator anim;
-    public SpriteRenderer sprite;
+    protected Rigidbody2D player;
+    protected AudioSource sounds;
+    protected Animator anim;
+    protected SpriteRenderer sprite;
 
     protected IPlayerState currentState = new PlayerIdle();
     protected Vector2 input = Vector2.zero;
-    public float speed;
-    public float height;
+    [SerializeField] public float speed;
+    [SerializeField] private float height;
 
     public abstract void Start();
     public abstract void Update();
@@ -34,6 +34,11 @@ public abstract class PlayerController : MonoBehaviour
         }
     }
 
+    public void Animate(string param, bool toggle)
+    {
+        anim.SetBool(param, toggle);
+    }
+
     public bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
@@ -42,6 +47,23 @@ public abstract class PlayerController : MonoBehaviour
     public void DestroyState(IPlayerState state)
     {
         state = null;
+    }
+
+    public void Move(float xAxis)
+    {
+        player.velocity = new Vector2(xAxis * speed, player.velocity.y);
+        sprite.flipX = false;
+        if (xAxis < 0f) sprite.flipX = true;
+    }
+
+    public void Jump()
+    {
+        player.velocity = new Vector2(player.velocity.x, height);
+    }
+
+    public void PlaySound(bool order)
+    {
+        sounds.enabled = order;
     }
 }
 
@@ -56,7 +78,6 @@ public class PlayerIdle : IPlayerState
 {
     public void Enter(PlayerController player)
     {
-        //player.anim.SetBool("idle", true);
         return;
     }
 
@@ -69,7 +90,6 @@ public class PlayerIdle : IPlayerState
 
     public void Exit(PlayerController player)
     {
-        //player.anim.SetBool("idle", false);
         player.DestroyState(this);
         return;
     }
@@ -79,8 +99,8 @@ public class PlayerRunning : IPlayerState
 {
     public void Enter(PlayerController player)
     {
-        player.anim.SetBool("running", true);
-        player.sounds.enabled = true;
+        player.Animate("running", true);
+        player.PlaySound(true);
         return;
     }
 
@@ -88,17 +108,14 @@ public class PlayerRunning : IPlayerState
     {
         if ((input.y > 0f) && player.IsGrounded()) return new PlayerJumping();
         if (input.x == 0f) return new PlayerIdle();
-
-        player.sprite.flipX = false;
-        if (input.x < 0f) player.sprite.flipX = true;
-        player.player.velocity = new Vector2(input.x * player.speed, player.player.velocity.y);
+        player.Move(input.x);
         return null;
     }
 
     public void Exit(PlayerController player)
     {
-        player.anim.SetBool("running", false);
-        player.sounds.enabled = false;
+        player.Animate("running", false);
+        player.PlaySound(false);
         player.DestroyState(this);
         return;
     }
@@ -108,8 +125,8 @@ public class PlayerJumping : IPlayerState
 {
     public void Enter(PlayerController player)
     {
-        player.anim.SetBool("jumping", true);
-        player.player.velocity = new Vector2(player.player.velocity.x, player.height);
+        player.Animate("jumping", true);
+        player.Jump();
         return;
     }
 
@@ -117,13 +134,13 @@ public class PlayerJumping : IPlayerState
     {
         if ((input.x != 0f) && player.IsGrounded()) return new PlayerRunning();
         if (player.IsGrounded()) return new PlayerIdle();
-        player.player.velocity = new Vector2(input.x * player.speed, player.player.velocity.y);
+        player.Move(input.x);
         return null;
     }
 
     public void Exit(PlayerController player)
     {
-        player.anim.SetBool("jumping", false);
+        player.Animate("jumping", false);
         player.DestroyState(this);
         return;
     }

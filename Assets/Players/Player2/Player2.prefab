@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5237479499567057637}
   - component: {fileID: 2503517799907687200}
   - component: {fileID: 8520446205383681219}
+  - component: {fileID: -374854332548683688}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Untagged
@@ -101,9 +102,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0
-  m_GravityScale: 3
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -176,6 +177,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   player: {fileID: 0}
+  sounds: {fileID: 0}
+  anim: {fileID: 0}
+  sprite: {fileID: 0}
+  speed: 7
+  height: 14
 --- !u!82 &8520446205383681219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,3 +278,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-374854332548683688
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593881012849574574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 551e692be8c195149b0eb08d36a9b0cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

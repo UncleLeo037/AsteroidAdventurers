@@ -22,7 +22,9 @@ public class PlayerTwo : PlayerController
         }
 
 
-        dirX = Input.GetAxis("Horizontal2");
-        player.velocity = new Vector2(dirX * 5f, player.velocity.y);
+        float xAxis = Input.GetAxis("Horizontal2");
+        player.velocity = new Vector2(xAxis * 5f, player.velocity.y);
     }
+
+
 }

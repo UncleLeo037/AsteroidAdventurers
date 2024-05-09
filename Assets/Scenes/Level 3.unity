@@ -392,6 +392,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &641747000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4307067915548233301, guid: 86ef99c8ee25f0b499632f4a1d7ff226, type: 3}
+  m_PrefabInstance: {fileID: 1206989453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!251 &641747006
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641747000}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &737118594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -524,7 +548,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4307067915548233301, guid: 86ef99c8ee25f0b499632f4a1d7ff226, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 641747006}
   m_SourcePrefab: {fileID: 100100000, guid: 86ef99c8ee25f0b499632f4a1d7ff226, type: 3}
 --- !u!1 &1693236447
 GameObject:
@@ -540,6 +567,7 @@ GameObject:
   - component: {fileID: 1693236451}
   - component: {fileID: 1693236453}
   - component: {fileID: 1693236452}
+  - component: {fileID: 1693236454}
   m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
@@ -3305,7 +3333,7 @@ CompositeCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -3817,6 +3845,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!251 &1693236454
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693236447}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1726659851
 GameObject:
   m_ObjectHideFlags: 0

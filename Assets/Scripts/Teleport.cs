@@ -10,8 +10,8 @@ public class Teleport : MonoBehaviour
 
     [SerializeField] private AudioSource teleport;
 
-    public static int level = 1;
-    public static int gain = 0;
+
+    private bool progress;
 
     void Update()
     {
@@ -19,10 +19,20 @@ public class Teleport : MonoBehaviour
         {
             one = false;
             two = false;
-            level += gain;
+            if (Menu.GetProgress())
+            {
+                int level = PlayerPrefs.GetInt("level", 1);
+                level += 1;
+                PlayerPrefs.SetInt("level", level);
+            }
             teleport.Play();
             SceneManager.LoadSceneAsync(0);
         }
+    }
+
+    public void SetProgress(bool progress)
+    {
+        this.progress = progress;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

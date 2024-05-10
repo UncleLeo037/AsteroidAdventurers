@@ -60,5 +60,6 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetInt("level", 1);
         nextLevel.SetActive(false);
         lastLevel.SetActive(false);
+        SceneManager.LoadSceneAsync(0);
     }
 }

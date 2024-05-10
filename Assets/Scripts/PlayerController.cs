@@ -22,7 +22,7 @@ public abstract class PlayerController : MonoBehaviour
     public abstract void Start();
     public abstract void Update();
 
-    public void UpdateState()
+    protected void UpdateState()
     {
         IPlayerState newState = currentState.Tick(this, input);
 

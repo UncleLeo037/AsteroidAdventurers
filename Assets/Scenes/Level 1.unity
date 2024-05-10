@@ -4497,6 +4497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: portal1
       objectReference: {fileID: 0}
+    - target: {fileID: 6114615631172961844, guid: 353067f8225d6bc4ab153437372acc73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

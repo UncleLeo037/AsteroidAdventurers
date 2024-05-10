@@ -52,9 +52,13 @@ public class Menu : MonoBehaviour
 
     public void EndGame()
     {
+        Application.Quit();
+    }
+
+    public void Reset()
+    {
         PlayerPrefs.SetInt("level", 1);
         nextLevel.SetActive(false);
         lastLevel.SetActive(false);
-        //Application.Quit();
     }
 }
